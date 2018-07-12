@@ -1,6 +1,6 @@
 package com.chatbot.nacim.web.rest;
 
-import com.chatbot.nacim.MicroservicesChatbotNacimApp;
+import com.chatbot.nacim.MicroserviceschatbotnacimApp;
 import com.chatbot.nacim.web.rest.vm.LoggerVM;
 import ch.qos.logback.classic.AsyncAppender;
 import ch.qos.logback.classic.LoggerContext;
@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see LogsResource
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MicroservicesChatbotNacimApp.class)
+@SpringBootTest(classes = MicroserviceschatbotnacimApp.class)
 public class LogsResourceIntTest {
 
     private MockMvc restLogsMockMvc;

@@ -1,6 +1,6 @@
 package com.chatbot.nacim.web.rest.errors;
 
-import com.chatbot.nacim.MicroservicesChatbotNacimApp;
+import com.chatbot.nacim.MicroserviceschatbotnacimApp;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see ExceptionTranslator
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MicroservicesChatbotNacimApp.class)
+@SpringBootTest(classes = MicroserviceschatbotnacimApp.class)
 public class ExceptionTranslatorIntTest {
 
     @Autowired

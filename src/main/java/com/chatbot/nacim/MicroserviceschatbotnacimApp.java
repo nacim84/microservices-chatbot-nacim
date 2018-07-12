@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
@@ -20,18 +21,19 @@ import java.util.Collection;
 
 @SpringBootApplication
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
-public class MicroservicesChatbotNacimApp {
+@EnableDiscoveryClient
+public class MicroserviceschatbotnacimApp {
 
-    private static final Logger log = LoggerFactory.getLogger(MicroservicesChatbotNacimApp.class);
+    private static final Logger log = LoggerFactory.getLogger(MicroserviceschatbotnacimApp.class);
 
     private final Environment env;
 
-    public MicroservicesChatbotNacimApp(Environment env) {
+    public MicroserviceschatbotnacimApp(Environment env) {
         this.env = env;
     }
 
     /**
-     * Initializes microservicesChatbotNacim.
+     * Initializes microserviceschatbotnacim.
      * <p>
      * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
      * <p>
@@ -56,7 +58,7 @@ public class MicroservicesChatbotNacimApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SpringApplication app = new SpringApplication(MicroservicesChatbotNacimApp.class);
+        SpringApplication app = new SpringApplication(MicroserviceschatbotnacimApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         String protocol = "http";
@@ -81,5 +83,10 @@ public class MicroservicesChatbotNacimApp {
             hostAddress,
             env.getProperty("server.port"),
             env.getActiveProfiles());
+
+        String configServerStatus = env.getProperty("configserver.status");
+        log.info("\n----------------------------------------------------------\n\t" +
+                "Config Server: \t{}\n----------------------------------------------------------",
+            configServerStatus == null ? "Not found or not setup for this application" : configServerStatus);
     }
 }

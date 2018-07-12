@@ -1,7 +1,7 @@
 {
-  "name": "microservices-chatbot-nacim",
+  "name": "microserviceschatbotnacim",
   "version": "0.0.0",
-  "description": "Description for microservicesChatbotNacim",
+  "description": "Description for microserviceschatbotnacim",
   "private": true,
   "license": "UNLICENSED",
   "cacheDirectories": [
